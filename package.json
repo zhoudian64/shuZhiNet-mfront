@@ -1,0 +1,41 @@
+{
+  "name": "mobsz",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.0.0-rc.1",
+    "axios": "^0.18.0",
+    "cheerio": "latest",
+    "material-design-icons-iconfont": "^3.0.3",
+    "native": "^0.3.3",
+    "request": "^2.88.0",
+    "request-promise-native": "^1.0.7",
+    "roboto-fontface": "*",
+    "tough-cookie": "^3.0.1",
+    "vue": "^2.6.6",
+    "vue-axios": "^2.1.4",
+    "vue-class-component": "^6.0.0",
+    "vue-property-decorator": "^7.0.0",
+    "vue-router": "^3.0.1",
+    "vuetify": "^1.5.5",
+    "vuex": "^3.1.0"
+  },
+  "devDependencies": {
+    "@types/cheerio": "^0.22.11",
+    "@types/request-promise-native": "^1.0.15",
+    "@types/tough-cookie": "^2.3.5",
+    "@vue/cli-plugin-babel": "^3.5.0",
+    "@vue/cli-plugin-typescript": "^3.5.0",
+    "@vue/cli-service": "^3.5.0",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.2",
+    "typescript": "^3.2.1",
+    "vue-cli-plugin-vuetify": "^0.5.0",
+    "vue-template-compiler": "^2.5.21"
+  }
+}
