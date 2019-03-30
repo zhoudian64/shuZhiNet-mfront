@@ -128,10 +128,6 @@
                     activity_id: (this as any).item.id,
                     phone_number: this.phoneNumber,
                     mail_address: this.email,
-                }, {
-                    headers: {
-                        'Authorization': 'Bearer '+ this.$store.getters.token
-                    }
                 }
             ).then((res) => {
                 if (res.status === 200) {

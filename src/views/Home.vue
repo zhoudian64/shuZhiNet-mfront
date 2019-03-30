@@ -1,6 +1,6 @@
 <template>
     <div class="home">
-        <v-progress-linear color="yellow" :indeterminate="true" v-if="!this.$store.getters.activity.length"></v-progress-linear>
+        <vue-overwatch-loading :Radius="45" v-if="!this.$store.getters.activity.length" class="loading"></vue-overwatch-loading>
         <div :key="allActivities.indexOf(item)" v-for="item in allActivities" v-else>
             <activity-card :item="item"></activity-card>
         </div>
@@ -28,3 +28,12 @@
         }
     }
 </script>
+
+<style scoped>
+.loading{
+  width:320px;
+  margin-left:auto;
+  margin-right:auto;
+}
+</style>
+
