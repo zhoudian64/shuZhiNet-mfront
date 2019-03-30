@@ -29,7 +29,6 @@
 
 <script lang="ts">
     import {Component, Vue} from "vue-property-decorator";
-    import Axios from "axios";
 
     @Component
     export default class Login extends Vue {
@@ -41,7 +40,7 @@
 
         public async login() {
             this.loading = true;
-            const response = await Axios.post("login", {
+            const response = await this.axios.post("login", {
                 Username: this.username,
                 Password: this.password
             });
@@ -56,6 +55,7 @@
                 this.errorLogin = true
             }
             this.loading = false;
+            this.axios.defaults.headers.common.Authorization = response.data.token;
         }
     };
 </script>
