@@ -16,19 +16,22 @@
                     <v-card-actions>
                         <v-flex>
                             <v-icon small color="white">timer</v-icon>
-                            <span class="caption" style="color:yellow">报名时间: {{format(item.sign_up_time,'yyyy年MM月dd日')}}</span>
+                            <span class="caption"
+                                  style="color:yellow">报名时间: {{format(item.sign_up_time,'yyyy年MM月dd日')}}</span>
                         </v-flex>
                     </v-card-actions>
                     <v-card-actions>
                         <v-flex>
                             <v-icon small color="white">access_time</v-icon>
-                            <span class="caption" style="color:yellow">开始时间: {{format(item.start_time,'yyyy年MM月dd日')}}</span>
+                            <span class="caption"
+                                  style="color:yellow">开始时间: {{format(item.start_time,'yyyy年MM月dd日')}}</span>
                         </v-flex>
                     </v-card-actions>
                     <v-card-actions>
                         <v-flex>
                             <v-icon small color="white">timer</v-icon>
-                            <span class="caption" style="color:yellow">结束时间: {{format(item.end_time,'yyyy年MM月dd日')}}</span>
+                            <span class="caption"
+                                  style="color:yellow">结束时间: {{format(item.end_time,'yyyy年MM月dd日')}}</span>
                         </v-flex>
                     </v-card-actions>
                     <v-divider></v-divider>
@@ -60,9 +63,9 @@
                             </v-card-text>
                             <v-divider></v-divider>
                             <v-card-actions>
-                            <v-btn @click="isSignUp = false " color="primary" block>
-                                确定
-                            </v-btn>
+                                <v-btn @click="isSignUp = false " color="primary" block>
+                                    确定
+                                </v-btn>
                             </v-card-actions>
                         </v-card>
                     </v-dialog>
@@ -73,9 +76,9 @@
                             </v-card-text>
                             <v-divider></v-divider>
                             <v-card-actions>
-                            <v-btn @click="continueSignUp = false " color="primary" block>
-                                确定
-                            </v-btn>
+                                <v-btn @click="continueSignUp = false " color="primary" block>
+                                    确定
+                                </v-btn>
                             </v-card-actions>
                         </v-card>
                     </v-dialog>
@@ -86,9 +89,9 @@
                             </v-card-text>
                             <v-divider></v-divider>
                             <v-card-actions>
-                            <v-btn @click="continueSignUp = false" color="primary" block>
-                                确定
-                            </v-btn>
+                                <v-btn @click="continueSignUp = false" color="primary" block>
+                                    确定
+                                </v-btn>
                             </v-card-actions>
                         </v-card>
                     </v-dialog>
@@ -122,16 +125,21 @@
         private async signUp() {
             this.loading = true;
             const response = await this.axios.post('engage', {
-                activity_id: (this as any).item.id,
-                phone_number: this.phoneNumber,
-                mail_address: this.email,
-            }).then ((res) => {
+                    activity_id: (this as any).item.id,
+                    phone_number: this.phoneNumber,
+                    mail_address: this.email,
+                }, {
+                    headers: {
+                        'Authorization': 'Bearer '+ this.$store.getters.token
+                    }
+                }
+            ).then((res) => {
                 if (res.status === 200) {
                     this.isSuccessSignUp = true;
                 } else {
                     this.isSuccessSignUp = false;
                 }
-            }).catch ((err) => {
+            }).catch((err) => {
                 this.isSuccessSignUp = true;
             });
             this.continueSignUp = true;
