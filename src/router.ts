@@ -7,7 +7,8 @@ import ti from "./components/ti.vue";
 import mei from "./components/mei.vue";
 import lao from "./components/lao.vue";
 import about from "./views/About.vue";
-import login from "./views/login.vue"
+import login from "./views/Login.vue"
+
 Vue.use(Router);
 
 export default new Router({

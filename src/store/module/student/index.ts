@@ -1,40 +1,48 @@
-interface student {
-    username:string,
-    studentName:string,
-    token:string,
-    ifLogin:boolean
+export interface Student {
+    username: string,
+    studentName: string,
+    token: string,
+    ifLogin: boolean
 }
 
-const state:student = {
-    username:'',
-    studentName:'',
-    token:'',
+const state: Student = {
+    username: '',
+    studentName: '',
+    token: '',
     ifLogin: false
-}
+};
 
 const getters = {
-    ifLogin(state:any){return state.ifLogin},
-    studentName(state:any){return state.studentName},
-    token(state:any){return state.token},
-    username(state:any){return state.username}
-}
+    ifLogin(studentState: Student) {
+        return studentState.ifLogin
+    },
+    studentName(studentState: Student) {
+        return studentState.studentName
+    },
+    token(studentState: Student) {
+        return studentState.token
+    },
+    username(studentState: Student) {
+        return studentState.username
+    }
+};
 
 const mutations = {
-    login(state:any,student:any){
-        state.username = student.username
-        state.ifLogin = true;
-        state.studentName = student.studentName;
-        state.token = student.token
+    login(studentState: Student, student: Student) {
+        studentState.username = student.username;
+        studentState.ifLogin = true;
+        studentState.studentName = student.studentName;
+        studentState.token = student.token
     },
-    logout(state:any){
-        state.ifLogin = false;
-        state.username = "";
-        state.studentName = "";
-        state.token = "";
+    logout(studentState: Student) {
+        studentState.ifLogin = false;
+        studentState.username = "";
+        studentState.studentName = "";
+        studentState.token = "";
     }
-}
+};
 
-export default{
+export default {
     state,
     getters,
     mutations

@@ -56,11 +56,11 @@
 
 <script>
     export default {
-        computed:{
-            ifLogin(){
+        computed: {
+            ifLogin() {
                 return this.$store.state.student.ifLogin
             },
-            studentName(){
+            studentName() {
                 return this.$store.state.student.studentName
             }
         },
@@ -91,9 +91,9 @@
         props: {
             source: String
         },
-        methods:{
-            logout(){
-               return this.$store.commit('logout')
+        methods: {
+            logout() {
+                return this.$store.commit('logout')
             }
         }
     }

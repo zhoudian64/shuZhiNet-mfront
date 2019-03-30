@@ -29,37 +29,34 @@
 
 <script lang="ts">
     import {Component, Vue} from "vue-property-decorator";
+    import Axios from "axios";
+
     @Component
     export default class Login extends Vue {
         private username = "";
         private password = "";
-        public studentName: string = "";
-        loading = false;
-        errorLogin = false;
-        public login() {
-            this.loading = true;
-            (async () => {
-                const response = await this.axios.post("http://localhost:8000/login", {
-                    Username: this.username,
-                    Password: this.password
-                }).then(res=>{
-                    console.log(res.data)
-                    if (res.data.student_name) {
-                        this.$store.commit ('login' , {
-                            username: this.username,
-                            studentName : res.data.student_name,
-                            token: res.data.token
-                        })
-                        this.$router.push("./");
-                    } else {
-                        this.errorLogin = true
-                    }
-                    this.loading = false;
-                })
-                this.axios.defaults.headers.Authorization = "Bearer " + localStorage.token;
-            })();
-        }
+        private loading = false;
+        private errorLogin = false;
+        private studentName: string = "";
 
+        public async login() {
+            this.loading = true;
+            const response = await Axios.post("login", {
+                Username: this.username,
+                Password: this.password
+            });
+            if (response.data.student_name) {
+                this.$store.commit("login", {
+                    username: this.username,
+                    studentName: response.data.student_name,
+                    token: response.data.token
+                });
+                this.$router.push("./");
+            } else {
+                this.errorLogin = true
+            }
+            this.loading = false;
+        }
     };
 </script>
 
