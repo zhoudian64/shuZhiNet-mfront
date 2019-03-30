@@ -1,6 +1,7 @@
 <template>
     <div class="home">
-        <div :key="allActivities.indexOf(item)" v-for="item in allActivities">
+        <v-progress-linear color="yellow" :indeterminate="true" v-if="!this.$store.getters.activity.length"></v-progress-linear>
+        <div :key="allActivities.indexOf(item)" v-for="item in allActivities" v-else>
             <activity-card :item="item"></activity-card>
         </div>
     </div>
