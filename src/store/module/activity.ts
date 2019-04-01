@@ -1,4 +1,5 @@
 export interface Activity {
+    typeid: string;
     id: string;
     title: string;
     leader: string;
@@ -13,8 +14,70 @@ const state = {
 };
 
 const getters = {
-    activity(activityState: any) {
-        return activityState.activity.map((item: Activity) => {
+    deActivit (activityState: any) {
+        return activityState.activity.filter((item: Activity, index: number) => {
+            return ["2", "3", "4"].indexOf(item.typeid) + 1 && activityState.activity.indexOf(item) === index;
+        }).map((item: Activity) => {
+            return {
+                id: item.id,
+                title: item.title,
+                leader: item.leader,
+                address: item.address,
+                start_time: new Date(item.start_time),
+                end_time: new Date(item.end_time),
+                sign_up_time: new Date(item.sign_up_time)
+            }
+        })
+    },
+    zhiActivity (activityState: any) {
+        return activityState.activity.filter((item: Activity, index: number) => {
+            return ["1", "5"].indexOf(item.typeid) + 1 && activityState.activity.indexOf(item) === index;
+        }).map((item: Activity) => {
+            return {
+                id: item.id,
+                title: item.title,
+                leader: item.leader,
+                address: item.address,
+                start_time: new Date(item.start_time),
+                end_time: new Date(item.end_time),
+                sign_up_time: new Date(item.sign_up_time)
+            }
+        })
+    },
+    tiActivity (activityState: any) {
+        return activityState.activity.filter((item: Activity) => {
+            return item.typeid === "6"
+        }).map((item: Activity) => {
+            return {
+                id: item.id,
+                title: item.title,
+                leader: item.leader,
+                address: item.address,
+                start_time: new Date(item.start_time),
+                end_time: new Date(item.end_time),
+                sign_up_time: new Date(item.sign_up_time)
+            }
+        })
+    },
+    meiActivity (activityState: any) {
+        return activityState.activity.filter((item: Activity) => {
+            return item.typeid === "7"
+        }).map((item: Activity) => {
+            return {
+                id: item.id,
+                title: item.title,
+                leader: item.leader,
+                address: item.address,
+                start_time: new Date(item.start_time),
+                end_time: new Date(item.end_time),
+                sign_up_time: new Date(item.sign_up_time)
+            }
+        })
+    },
+    laoActivity (activityState: any) {
+        return activityState.activity.filter((item: Activity) => {
+            return item.typeid === "8"
+        }).map((item: Activity) => {
             return {
                 id: item.id,
                 title: item.title,

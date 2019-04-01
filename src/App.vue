@@ -20,7 +20,7 @@
             </v-list>
         </v-navigation-drawer>
         <v-toolbar
-                color="red darken-3"
+                color="red darken-4"
                 dense
                 fixed
                 clipped-left
@@ -51,6 +51,9 @@
                 </v-flex>
             </v-container>
         </v-content>
+        <v-footer app class="red darken-4">
+            <span>&copy; shuosc</span>
+        </v-footer>
     </v-app>
 </template>
 
@@ -68,7 +71,6 @@
             login: {text: "登录", to: "/login"},
             drawer: null,
             items: [
-                {icon: "home", text: "首页", to: "home"},
                 {icon: "trending_up", text: "德", to: "de"},
                 {icon: "subscriptions", text: "智", to: "zhi"},
                 {icon: "history", text: "体", to: "ti"},
@@ -77,7 +79,6 @@
                 {icon: "watch_later", text: "关于", to: "about"},
             ],
             URL_CHINESE_MAP: new Map([
-                ["/", "首页"],
                 ["/about", "关于"],
                 ["/de", "德"],
                 ["/zhi", "智"],

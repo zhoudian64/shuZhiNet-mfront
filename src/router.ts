@@ -1,6 +1,5 @@
 import Vue from "vue";
 import Router from "vue-router";
-import home from "./views/Home.vue";
 import de from "./components/de.vue";
 import zhi from "./components/zhi.vue";
 import ti from "./components/ti.vue";
@@ -17,12 +16,7 @@ export default new Router({
     routes: [
         {
             path: "/",
-            redirect: "home",
-        },
-        {
-            path: "/home",
-            name: "home",
-            component: home,
+            redirect: "de",
         },
         {
             path: "/about",
