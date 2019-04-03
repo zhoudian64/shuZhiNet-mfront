@@ -55,7 +55,7 @@
                 this.errorLogin = true
             }
             this.loading = false;
-            this.axios.defaults.headers.common.Authorization = response.data.token;
+            this.axios.defaults.headers.common.Authorization = "Token= " + response.data.token;
         }
     };
 </script>

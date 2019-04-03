@@ -76,10 +76,10 @@
                 {icon: "history", text: "体", to: "ti"},
                 {icon: "featured_play_list", text: "美", to: "mei"},
                 {icon: "watch_later", text: "劳", to: "lao"},
-                {icon: "watch_later", text: "关于", to: "about"},
+                {icon: "watch_later", text: "我的活动", to: "about"},
             ],
             URL_CHINESE_MAP: new Map([
-                ["/about", "关于"],
+                ["/about", "我的活动"],
                 ["/de", "德"],
                 ["/zhi", "智"],
                 ["/ti", "体"],

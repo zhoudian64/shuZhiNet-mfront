@@ -11,6 +11,7 @@ export interface Activity {
 
 const state = {
     activity: Array<Activity>(),
+    myActivity: Array<Activity>()
 };
 
 const getters = {
@@ -88,6 +89,19 @@ const getters = {
                 sign_up_time: new Date(item.sign_up_time)
             }
         })
+    },
+    myActivity (activityState: any) {
+        return activityState.myActivity.map((item: Activity) => {
+            return {
+                id: item.id,
+                title: item.title,
+                leader: item.leader,
+                address: item.address,
+                start_time: new Date(item.start_time),
+                end_time: new Date(item.end_time),
+                sign_up_time: new Date(item.sign_up_time)
+            }
+        })
     }
 };
 
@@ -96,6 +110,22 @@ const mutations = {
         payload.forEach((item) => {
             activityState.activity.push(item)
         });
+    },
+    getMyActivities(activityState: any, payload: Array<string>) {
+        payload.forEach((item) => {
+            for (const activity of activityState.activity) {
+                if (item === activity.id) {
+                    activityState.myActivity.push(activity);
+                }
+            }
+        })
+    },
+    cancelActivity(activityState: any, payload: Activity) {
+        for (const i in activityState.myActivity) {
+            if (activityState.myActivity[i].id === payload.id) {
+                activityState.myActivity.splice(i, 1);
+            }
+        }
     }
 };
 
