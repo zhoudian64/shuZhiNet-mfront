@@ -14,7 +14,7 @@ const state = {
 };
 
 const getters = {
-    deActivit (activityState: any) {
+    deActivity (activityState: any) {
         return activityState.activity.filter((item: Activity, index: number) => {
             return ["2", "3", "4"].indexOf(item.typeid) + 1 && activityState.activity.indexOf(item) === index;
         }).map((item: Activity) => {

@@ -14,15 +14,16 @@
     @Component({
         components: {
             activityCard
-        },
-        async mounted() {
+        }
+    })
+    export default class Home extends Vue {
+        private async mounted() {
+            console.log(this.$store);
             if (!this.$store.getters.deActivity.length) {
                 const response = await this.axios.get("activities");
                 this.$store.commit('getActivities', response.data);
             }
         }
-    })
-    export default class Home extends Vue {
         get allActivities() {
             return this.$store.getters.deActivity
         }
