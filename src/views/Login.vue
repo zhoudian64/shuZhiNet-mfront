@@ -40,7 +40,7 @@
 
         public async login() {
             this.loading = true;
-            const response = await this.axios.post("api/login", {
+            const response = await this.axios.post("/api/login", {
                 Username: this.username,
                 Password: this.password
             });
