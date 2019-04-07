@@ -1,0 +1,12 @@
+services:
+  - docker
+language: node_js
+jobs:
+  include:
+    - stage: build
+      language: node_js
+      script:
+        - docker build . -t shu_zhi_net_mfront
+        - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+        - docker tag shu_zhi_net-mfront $DOCKER_USERNAME/shu_zhi_net-mfront
+        - docker push $DOCKER_USERNAME/shu_zhi_net-mfront

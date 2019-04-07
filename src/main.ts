@@ -10,7 +10,7 @@ import VueAxios from 'vue-axios'
 import store from './store'
 import VueOverwatchLoading from 'vue-overwatch-loading'
 
-axios.defaults.baseURL = "http://localhost:8000";
+axios.defaults.baseURL = process.env.BACKEND_ADDRESS;
 Vue.use(VueAxios, axios);
 Vue.use(VueOverwatchLoading);
 Vue.config.productionTip = false;
