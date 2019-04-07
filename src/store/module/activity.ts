@@ -1,5 +1,5 @@
 export interface Activity {
-    typeid: string;
+    type_id: string;
     id: string;
     title: string;
     leader: string;
@@ -17,7 +17,7 @@ const state = {
 const getters = {
     deActivity (activityState: any) {
         return activityState.activity.filter((item: Activity, index: number) => {
-            return ["2", "3", "4"].indexOf(item.typeid) + 1 && activityState.activity.indexOf(item) === index;
+            return ["2", "3", "4"].indexOf(item.type_id) + 1 && activityState.activity.indexOf(item) === index;
         }).map((item: Activity) => {
             return {
                 id: item.id,
@@ -32,7 +32,7 @@ const getters = {
     },
     zhiActivity (activityState: any) {
         return activityState.activity.filter((item: Activity, index: number) => {
-            return ["1", "5"].indexOf(item.typeid) + 1 && activityState.activity.indexOf(item) === index;
+            return ["1", "5"].indexOf(item.type_id) + 1 && activityState.activity.indexOf(item) === index;
         }).map((item: Activity) => {
             return {
                 id: item.id,
@@ -47,7 +47,7 @@ const getters = {
     },
     tiActivity (activityState: any) {
         return activityState.activity.filter((item: Activity) => {
-            return item.typeid === "6"
+            return item.type_id === "6"
         }).map((item: Activity) => {
             return {
                 id: item.id,
@@ -62,7 +62,7 @@ const getters = {
     },
     meiActivity (activityState: any) {
         return activityState.activity.filter((item: Activity) => {
-            return item.typeid === "7"
+            return item.type_id === "7"
         }).map((item: Activity) => {
             return {
                 id: item.id,
@@ -77,7 +77,7 @@ const getters = {
     },
     laoActivity (activityState: any) {
         return activityState.activity.filter((item: Activity) => {
-            return item.typeid === "8"
+            return item.type_id === "8"
         }).map((item: Activity) => {
             return {
                 id: item.id,
