@@ -1,4 +1,4 @@
-FROM node:11.6.0-alpine as builder
+FROM node:alpine as builder
 COPY . /mfront
 RUN npm install --production
 RUN npm run build
