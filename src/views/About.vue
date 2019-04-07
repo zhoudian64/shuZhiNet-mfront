@@ -1,18 +1,18 @@
 <template>
     <div class="about">
         <div v-for="item in myActivities" :key="item.id">
-            <my-activity-card :item="item"></my-activity-card>
+            <activity-card :item="item"></activity-card>
         </div>
     </div>
 </template>
 
 <script lang="ts">
     import {Component, Vue} from 'vue-property-decorator';
-    import myActivityCard from '../components/myActivityCard.vue'
+    import ActivityCard from '../components/activityCard.vue'
 
     @Component({
         components: {
-            myActivityCard
+            ActivityCard
         },
         async mounted() {
             const response = await this.axios.get("/api/participating-activities").then((res) => {
