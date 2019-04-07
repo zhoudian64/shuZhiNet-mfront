@@ -1,7 +1,8 @@
 FROM node:alpine as builder
 COPY . /mfront
-RUN npm install --production
-RUN npm run build
+WORKDIR /mfront
+RUN yarn
+RUN yarn build
 
 FROM nginx:1.15.10-alpine
 COPY --from=builder /mfront/dist /usr/share/nginx/html/
