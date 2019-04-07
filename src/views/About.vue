@@ -15,7 +15,7 @@
             myActivityCard
         },
         async mounted() {
-            const response = await this.axios.get("participating-activities").then((res) => {
+            const response = await this.axios.get("/api/participating-activities").then((res) => {
                 this.$store.commit('getMyActivities', res.data)
             })
         }
