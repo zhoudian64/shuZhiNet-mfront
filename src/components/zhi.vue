@@ -17,7 +17,7 @@
         },
         async mounted() {
             if (!this.$store.getters.deActivity.length) {
-                const response = await this.axios.get("activities");
+                const response = await this.axios.get("all-activities");
                 this.$store.commit('getActivities', response.data);
             }
         }

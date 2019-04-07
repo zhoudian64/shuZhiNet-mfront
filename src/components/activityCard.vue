@@ -124,7 +124,7 @@
 
         private async signUp() {
             this.loading = true;
-            const response = await this.axios.post('engage', {
+            const response = await this.axios.post('take-part', {
                     activity_id: (this as any).item.id,
                     phone_number: this.phoneNumber,
                     mail_address: this.email,

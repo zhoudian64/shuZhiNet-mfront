@@ -76,7 +76,7 @@
         private notCancel = false;
 
         public async CancelSignUp() {
-            const response = await this.axios.post('cancel', {
+            const response = await this.axios.post('opt-out', {
                     activity_id: (this as any).item.id,
                 }
             ).then((res) => {
